@@ -69,12 +69,13 @@ class BitTestSuite
 
 
 TEST_P(BitTestSuite, EqualTest) {
-    auto toBitset = [](uint239_t& value) ->  std::bitset<35 * sizeof(uint8_t)> {
-        std::bitset<35*sizeof(uint8_t)> bits;
+    constexpr size_t kBitsInByte = 8;
+    auto toBitset = [](uint239_t& value) ->  std::bitset<35 * kBitsInByte> {
+        std::bitset<35 * kBitsInByte> bits;
     
         for (std::size_t i = 0; i < 35; ++i) {
-            for (std::size_t j = 0; j < sizeof(uint8_t); ++j) {
-                bits[i * sizeof(uint8_t) + j] = ( (value.data[i] >> j) & 1 );
+            for (std::size_t j = 0; j < kBitsInByte; ++j) {
+                bits[i * kBitsInByte + j] = ( (value.data[34 - i] >> j) & 1 );
             }
         }
 
@@ -82,7 +83,7 @@ TEST_P(BitTestSuite, EqualTest) {
     };
 
     uint239_t a = FromString(std::get<0>(GetParam()).first, std::get<0>(GetParam()).second);
-    std::bitset<35 * sizeof(uint8_t)> expected(std::get<1>(GetParam()));
+    std::bitset<35 * kBitsInByte> expected(std::get<1>(GetParam()));
 
     ASSERT_EQ(toBitset(a), expected);
 }

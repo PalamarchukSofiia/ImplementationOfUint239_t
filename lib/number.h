@@ -27,4 +27,4 @@ bool operator!=(const uint239_t& lhs, const uint239_t& rhs);
 
 std::ostream& operator<<(std::ostream& stream, const uint239_t& value);
 
-uint32_t GetShift(const uint239_t& value);
+uint64_t GetShift(const uint239_t& value);

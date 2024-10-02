@@ -39,6 +39,6 @@ std::ostream& operator<<(std::ostream& stream, const uint239_t& value) {
     return stream;
 }
 
-uint32_t GetShift(const uint239_t& value) {
+uint64_t GetShift(const uint239_t& value) {
     return 0;
 }

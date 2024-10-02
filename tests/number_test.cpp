@@ -1,7 +1,8 @@
 #include <lib/number.h>
 #include <gtest/gtest.h>
-#include <tuple>
+#include <bitset>
 #include <cstring>
+#include <tuple>
 
 
 using TValue = std::pair<const char*, uint32_t>;

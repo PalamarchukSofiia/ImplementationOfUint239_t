@@ -1,7 +1,7 @@
 #pragma once
 #include <cinttypes>
 #include <iostream>
-
+#include <string>
 
 struct uint239_t {
     uint8_t data[35];
@@ -17,10 +17,6 @@ uint239_t operator+(const uint239_t& lhs, const uint239_t& rhs);
 
 uint239_t operator-(const uint239_t& lhs, const uint239_t& rhs);
 
-uint239_t operator*(const uint239_t& lhs, const uint239_t& rhs);
-
-uint239_t operator/(const uint239_t& lhs, const uint239_t& rhs);
-
 bool operator==(const uint239_t& lhs, const uint239_t& rhs);
 
 bool operator!=(const uint239_t& lhs, const uint239_t& rhs);
@@ -28,3 +24,7 @@ bool operator!=(const uint239_t& lhs, const uint239_t& rhs);
 std::ostream& operator<<(std::ostream& stream, const uint239_t& value);
 
 uint64_t GetShift(const uint239_t& value);
+
+void Left_Shift(int binary_value_arr[], uint32_t shift);
+
+void Right_Shift(int binary_value_arr[], uint32_t shift);
